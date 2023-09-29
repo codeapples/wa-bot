@@ -1,0 +1,29 @@
+{
+  "name": "wa-bot",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "start": "vite-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "esview": "eslint-flat-config-viewer"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.3",
+    "vite": "^4.4.9",
+    "vite-node": "^0.34.6",
+    "whatsapp-web.js": "^1.22.1",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "1.0.0-beta.17",
+    "@types/qrcode": "^1.5.2",
+    "eslint": "^8.50.0",
+    "eslint-flat-config-viewer": "^0.0.8",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  }
+}
