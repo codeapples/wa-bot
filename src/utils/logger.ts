@@ -1,29 +1,31 @@
-import { createLogger, format, transports } from 'winston'
+import type { Logger, LoggerOptions } from 'pino'
+import pino from 'pino'
+import { env } from '~/utils/env'
 
-export const logger = createLogger({
-  level: (() => import.meta.env.DEV ? 'debug' : 'warn')(),
-  levels: {
-    error: 0,
-    warn: 1,
-    info: 2,
-    http: 3,
-    debug: 4,
+const options: LoggerOptions = {
+  level: env.LOG_LEVEL,
+  transport: {
+    targets: [
+      {
+        level: env.LOG_LEVEL,
+        target: 'pino-pretty',
+        options: {
+          translateTime: 'SYS:dd-mm-yyyy HH:MM:ss',
+          colorize: true,
+          ignore: 'pid,hostname',
+        },
+      },
+      {
+        level: env.LOG_LEVEL,
+        target: 'pino/file',
+        options: {
+          destination: `logs/app.log`,
+          translateTime: 'SYS:dd-mm-yyyy HH:MM:ss',
+          ignore: 'pid,hostname',
+        },
+      },
+    ],
   },
-  format: format.combine(
-    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
-    format.colorize({ all: true }),
-    format.printf(
-      info => `${info.timestamp} ${info.level}: ${info.message}`,
-    ),
-  ),
-  transports: [
-    new transports.Console(),
-    new transports.File({
-      filename: 'logs/error.log',
-      level: 'error',
-    }),
-    new transports.File({
-      filename: 'logs/all.log',
-    }),
-  ],
-})
+}
+
+export const logger: Logger = pino(options)

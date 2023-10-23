@@ -7,23 +7,25 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "start": "vite-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "esview": "eslint-flat-config-viewer"
+    "dev": "nodemon src/index.ts",
+    "esview": "eslint-flat-config-viewer",
+    "x": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "qrcode": "^1.5.3",
-    "vite": "^4.4.9",
-    "vite-node": "^0.34.6",
-    "whatsapp-web.js": "^1.22.1",
-    "winston": "^3.10.0"
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.5.0",
+    "dotenv": "^16.3.1",
+    "link-preview-js": "^3.0.5",
+    "pino": "^7.0.0",
+    "pino-pretty": "^10.2.3",
+    "qrcode-terminal": "^0.12.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "1.0.0-beta.17",
-    "@types/qrcode": "^1.5.2",
-    "eslint": "^8.50.0",
-    "eslint-flat-config-viewer": "^0.0.8",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.6"
+    "@antfu/eslint-config": "1.0.0-beta.28",
+    "eslint": "^8.52.0",
+    "eslint-flat-config-viewer": "^0.1.0",
+    "nodemon": "3.0.1",
+    "tsx": "^3.14.0",
+    "typescript": "^5.2.2"
   }
 }

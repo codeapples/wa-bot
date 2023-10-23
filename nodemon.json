@@ -1,0 +1,6 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/nodemon.json",
+  "verbose": false,
+  "exec": "tsx",
+  "ignore": ["*.test.js", "logs/**", "session/**"]
+}
